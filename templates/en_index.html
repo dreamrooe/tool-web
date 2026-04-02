@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Random Password Generator | Free Secure Password 2026</title>
+    <meta name="description" content="Free online strong random password generator, create 12/16/24 length secure passwords instantly. No download, no registration.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .pwd-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pwd-text {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            color: #0f172a;
+            word-break: break-all;
+        }
+        .copy-btn {
+            background: #0066cc;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        .copy-btn:hover {
+            background: #0052a3;
+        }
+        .refresh-btn {
+            width: 100%;
+            background: #22c55e;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .refresh-btn:hover {
+            background: #16a34a;
+        }
+        .ad-placeholder {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            text-align: center;
+            color: #64748b;
+        }
+    </style>
+    <!-- 这里后续粘贴Google Adsense广告代码 -->
+</head>
+<body>
+    <div class="container">
+        <h1>Strong Random Password Generator</h1>
+
+        <div class="pwd-box">
+            <span class="pwd-text" id="pwd12">{{ pwd12 }}</span>
+            <button class="copy-btn" onclick="copyText('pwd12')">Copy</button>
+        </div>
+
+        <div class="pwd-box">
+            <span class="pwd-text" id="pwd16">{{ pwd16 }}</span>
+            <button class="copy-btn" onclick="copyText('pwd16')">Copy</button>
+        </div>
+
+        <div class="pwd-box">
+            <span class="pwd-text" id="pwd24">{{ pwd24 }}</span>
+            <button class="copy-btn" onclick="copyText('pwd24')">Copy</button>
+        </div>
+
+        <button class="refresh-btn" onclick="location.reload()">Generate New Passwords</button>
+
+        <!-- 广告位 -->
+        <div class="ad-placeholder">
+            <!-- 这里放Google Adsense广告单元 -->
+            Ad Placeholder
+        </div>
+    </div>
+
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
