@@ -19,7 +19,7 @@ def timestamp():
 def base64():
     return render_template('base64.html')
 
-# 自动生成 sitemap.xml（谷歌自动抓取，永久不用管）
+# 自动生成 sitemap.xml（谷歌永久自动抓取，无需手动推送）
 @app.route('/sitemap.xml')
 def sitemap():
     domain = "https://tool-web-coral.vercel.app"
@@ -43,7 +43,7 @@ def sitemap():
     xml += '</urlset>'
     return xml, 200, {'Content-Type': 'application/xml'}
 
-# robots.txt 自动引导谷歌收录
+# robots.txt 引导谷歌抓取，提升收录速度
 @app.route('/robots.txt')
 def robots():
     txt = '''User-agent: *
@@ -53,4 +53,4 @@ Sitemap: https://tool-web-coral.vercel.app/sitemap.xml
     return txt, 200, {'Content-Type': 'text/plain'}
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=False)
