@@ -11,23 +11,71 @@
         body{background:#f0f4f8;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
         .card{background:#fff;padding:40px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);max-width:500px;width:100%}
         h1{color:#1e293b;text-align:center;margin-bottom:24px}
-        .result{background:#f8fafc;padding:16px;border-radius:8px;font-size:22px;letter-spacing:1px;text-align:center;margin-bottom:20px;color:#1e293b}
+        .ad-banner{margin:20px 0;text-align:center}
+        .length-select{margin:15px 0;text-align:center}
+        .length-select label{margin-right:10px;font-weight:bold;color:#334155}
+        .length-select select{padding:8px;border-radius:6px;border:1px solid #e2e8f0}
+        .result{background:#f8fafc;padding:16px;border-radius:8px;font-size:22px;letter-spacing:1px;text-align:center;margin-bottom:20px;color:#1e293b;word-break:break-all}
         .btn{width:100%;background:#0066cc;color:#fff;border:none;padding:16px;border-radius:8px;font-size:18px;cursor:pointer;margin-top:10px}
+        .copy-btn{background:#22c55e;margin-top:15px}
+        footer{text-align:center;margin-top:20px;color:#64748b;font-size:14px}
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Strong Password Generator</h1>
+        
+        <div class="ad-banner">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4182465888243941"
+                 data-ad-slot="1234567890"  <!-- 替换为你的AdSense广告位ID -->
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="length-select">
+            <label for="pwd-length">Password Length:</label>
+            <select id="pwd-length">
+                <option value="12">12 Characters</option>
+                <option value="16" selected>16 Characters</option>
+                <option value="24">24 Characters</option>
+            </select>
+        </div>
+
         <div class="result" id="result"></div>
         <button class="btn" onclick="generate()">Generate Password</button>
+        <button class="btn copy-btn" onclick="copy()">Copy Password</button>
+
+        <footer>
+            <p>This site uses Google Adsense. Ads may be personalized based on your browsing history.</p>
+            <p><a href="/privacy-policy" style="color:#0066cc">Privacy Policy</a> | <a href="/terms-of-service" style="color:#0066cc">Terms of Service</a></p>
+        </footer>
     </div>
+
     <script>
         function generate(){
+            const length = parseInt(document.getElementById("pwd-length").value);
             const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
             let pwd="";
-            for(let i=0;i<16;i++)pwd+=chars[Math.floor(Math.random()*chars.length)];
+            for(let i=0;i<length;i++)pwd+=chars[Math.floor(Math.random()*chars.length)];
             document.getElementById("result").textContent=pwd;
         }
+        
+        function copy() {
+            const result = document.getElementById("result");
+            if(!result.textContent) {
+                alert("Generate a password first!");
+                return;
+            }
+            navigator.clipboard.writeText(result.textContent);
+            alert("Password copied to clipboard!");
+        }
+
+        // Generate initial password
         generate();
     </script>
 </body>

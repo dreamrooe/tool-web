@@ -6,7 +6,10 @@ import requests
 urls = [
     f"{site}",
     f"{site}timestamp",
-    f"{site}base64"
+    f"{site}base64",
+    f"{site}privacy-policy",
+    f"{site}terms-of-service",
+    f"{site}about"
 ]
 
 for url in urls:
